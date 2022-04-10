@@ -1,0 +1,36 @@
+<h1>Show Subscribe</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.subscribe_show_path(@socket, :show, @subscribe)}>
+    <.live_component
+      module={KombuchiServerWeb.SubscribeLive.FormComponent}
+      id={@subscribe.id}
+      title={@page_title}
+      action={@live_action}
+      subscribe={@subscribe}
+      return_to={Routes.subscribe_show_path(@socket, :show, @subscribe)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @subscribe.name %>
+  </li>
+
+  <li>
+    <strong>Age:</strong>
+    <%= @subscribe.age %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @subscribe.email %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.subscribe_show_path(@socket, :edit, @subscribe), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.subscribe_index_path(@socket, :index) %></span>

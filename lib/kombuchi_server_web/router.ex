@@ -18,6 +18,13 @@ defmodule KombuchiServerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/subscribers", SubscribeLive.Index, :index
+    live "/subscribers/new", SubscribeLive.Index, :new
+    live "/subscribers/:id/edit", SubscribeLive.Index, :edit
+
+    live "/subscribers/:id", SubscribeLive.Show, :show
+    live "/subscribers/:id/show/edit", SubscribeLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
