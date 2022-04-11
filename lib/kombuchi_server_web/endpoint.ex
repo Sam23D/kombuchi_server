@@ -7,7 +7,9 @@ defmodule KombuchiServerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_kombuchi_server_key",
-    signing_salt: "sHVIcp+Q"
+    signing_salt: "sHVIcp+Q",
+    store: PhoenixLiveSession,
+    pub_sub: KombuchiServer.PubSub,
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
