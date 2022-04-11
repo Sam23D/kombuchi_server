@@ -17,7 +17,10 @@ defmodule KombuchiServerWeb.Router do
   scope "/", KombuchiServerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+
+    live "/", SubscribeLive.Front, :index
+
 
     live "/subscribers", SubscribeLive.Index, :index
     live "/subscribers/new", SubscribeLive.Index, :new

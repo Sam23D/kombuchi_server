@@ -1,5 +1,5 @@
-<div>
-  <h2><%= @title %></h2>
+<div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7" >
+  <h2 class="mb-6 text-2xl font-medium text-center" ><%= @title %></h2>
 
   <.form
     let={f}
@@ -9,20 +9,14 @@
     phx-change="validate"
     phx-submit="save">
   
-    <%= label f, :name %>
-    <%= text_input f, :name %>
-    <%= error_tag f, :name %>
-  
-    <%= label f, :age %>
-    <%= number_input f, :age %>
-    <%= error_tag f, :age %>
-  
-    <%= label f, :email %>
-    <%= text_input f, :email %>
+    <%= text_input f, :name, placeholder: "Nombre", class: "block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none" %>
+    <%= error_tag f, :name %> 
+
+    <%= text_input f, :email, placeholder: "Correo electronico", class: "block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none" %>
     <%= error_tag f, :email %>
   
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= submit "Subscribirme", phx_disable_with: "Saving...", class: "w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg" %>
     </div>
   </.form>
 </div>

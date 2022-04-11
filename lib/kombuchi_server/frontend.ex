@@ -98,7 +98,12 @@ defmodule KombuchiServer.Frontend do
       %Ecto.Changeset{data: %Subscribe{}}
 
   """
-  def change_subscribe(%Subscribe{} = subscribe, attrs \\ %{}) do
+  def change_subscribe(subscribe, attrs \\ %{})
+
+  def change_subscribe(nil, attrs) do
+    Subscribe.changeset(%Subscribe{}, attrs)
+  end
+  def change_subscribe(%Subscribe{} = subscribe, attrs) do
     Subscribe.changeset(subscribe, attrs)
   end
 end

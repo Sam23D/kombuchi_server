@@ -40,10 +40,13 @@ defmodule KombuchiServerWeb.SubscribeLive.FormComponent do
     end
   end
 
-  defp save_subscribe(socket, :new, subscribe_params) do
+  @new_subscriber_actions [:new, :index]
+
+  defp save_subscribe(socket, action, subscribe_params) when action in @new_subscriber_actions do
     case Frontend.create_subscribe(subscribe_params) do
       {:ok, _subscribe} ->
         {:noreply,
+        # add session for current subscriber
          socket
          |> put_flash(:info, "Subscribe created successfully")
          |> push_redirect(to: socket.assigns.return_to)}
