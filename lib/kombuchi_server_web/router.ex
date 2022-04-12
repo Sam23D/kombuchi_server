@@ -23,6 +23,7 @@ defmodule KombuchiServerWeb.Router do
     # get "/", PageController, :index
 
     live "/", SubscribeLive.Front, :index
+    live "/user_register", SubscribeLive.Front, :user_register
 
 
     live "/subscribers", SubscribeLive.Index, :index
