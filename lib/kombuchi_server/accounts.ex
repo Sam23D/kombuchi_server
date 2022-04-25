@@ -7,6 +7,7 @@ defmodule KombuchiServer.Accounts do
   alias KombuchiServer.Repo
 
   alias KombuchiServer.Accounts.{User, UserToken, UserNotifier}
+  alias KombuchiServer.Frontend.Subscribe
 
   ## Database getters
 
@@ -42,6 +43,16 @@ defmodule KombuchiServer.Accounts do
       when is_binary(email) and is_binary(password) do
     user = Repo.get_by(User, email: email)
     if User.valid_password?(user, password), do: user
+  end
+
+  @doc """
+  Will try to fetch a a user from the db by the email, if none exist then ti will create a newone with the provided Subscribe parameters
+  """
+  def get_or_create_user_by_subscriber(subscriber=%Subscribe{ name: name, email: email })do
+    case get_user_by_email(email) do
+      user=%User{} -> user
+      nil -> register_user(%{email: email, name: name})
+    end
   end
 
   @doc """

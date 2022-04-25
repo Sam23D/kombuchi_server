@@ -38,6 +38,16 @@ defmodule KombuchiServer.Frontend do
   def get_subscribe!(id), do: Repo.get!(Subscribe, id)
 
   @doc """
+  Tries to fetch a suubscribe that matches both name and email
+  """
+  def maybe_subscribe_by_name_and_email(name, email)do
+    qry = from subscriber in Subscribe,
+      where: subscriber.name == ^name and subscriber.email == ^email
+
+    Repo.one(qry)
+  end
+
+  @doc """
   Creates a subscribe.
 
   ## Examples
