@@ -48,10 +48,10 @@ defmodule KombuchiServer.Accounts do
   @doc """
   Will try to fetch a a user from the db by the email, if none exist then ti will create a newone with the provided Subscribe parameters
   """
-  def get_or_create_user_by_subscriber(subscriber=%Subscribe{ name: name, email: email })do
+  def get_or_create_user_by_subscriber(subscriber=%Subscribe{ email: email })do
     case get_user_by_email(email) do
       user=%User{} -> user
-      nil -> register_user(%{email: email, name: name})
+      nil -> register_user_from_subscriber(subscriber)
     end
   end
 
@@ -88,6 +88,15 @@ defmodule KombuchiServer.Accounts do
   def register_user(attrs) do
     %User{}
     |> User.registration_changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Will create a User from a given subscriber
+  """
+  def register_user_from_subscriber(subscriber)do
+    %User{}
+    |> User.from_subscriber_changeset(subscriber)
     |> Repo.insert()
   end
 
