@@ -1,12 +1,16 @@
 defmodule KombuchiServer.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias KombuchiServer.Frontend.Subscribe
 
   schema "users" do
     field :email, :string
+    field :name, :string
+    field :lastname, :string
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    # add user name
 
     timestamps()
   end
@@ -33,6 +37,13 @@ defmodule KombuchiServer.Accounts.User do
     |> cast(attrs, [:email, :password])
     |> validate_email()
     |> validate_password(opts)
+  end
+
+  def from_subscriber_changeset(user, %Subscribe{email: email, name: name}, opts \\ [])do
+    user
+    |> cast(%{email: email, name: name}, [:email, :name])
+    |> validate_email()
+
   end
 
   defp validate_email(changeset) do
