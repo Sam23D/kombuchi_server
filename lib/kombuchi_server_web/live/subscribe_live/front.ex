@@ -1,17 +1,76 @@
 defmodule KombuchiServerWeb.SubscribeLive.Front do
   use KombuchiServerWeb, :live_view
 
+  require Logger
+
   alias KombuchiServer.Frontend
   alias KombuchiServer.Frontend.Subscribe
+  alias  KombuchiServer.Accounts
+  @moduledoc """
+  This liveview will work as main entry for registration and client aquisition
+
+  It contains:
+  - Subscription, user confirmation form
+  - FAQ displayed
+
+  Should check if there is an existign session
+
+  if session
+  - check for verified account?
+  - show current status of subscription
+
+  unless session
+  - show subscribe form
+  - show send verification email button
+
+  TODO mmust change to be teh source of truth for form_component follow this link
+  https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html#module-livecomponent-as-the-source-of-truth
+
+  """
 
   @impl true
-  def mount(_params, _session, socket) do
-    new_subscriber =  %Subscribe{}
-    {:ok, assign(socket, subscribe: new_subscriber )}
+  def mount(_params, session, socket) do
+    # socket = socket
+    # TODO subscribe the liveview to the session
+    # |> PhoenixLiveSession.maybe_subscribe(session)
+    new_socket = socket
+    |> PhoenixLiveSession.maybe_subscribe(session)
+    |> assign_new(:user, fn -> nil end)
+    |> _maybe_assign_user_from_session(session)
+    |> assign(subscribe: nil, registration_step: :unsubscribed)
+    |> IO.inspect(label: "LV mount socket ")
+    session
+    |> IO.inspect(label: "LV socket session")
+    {:ok, new_socket}
+  end
+
+  def _maybe_assign_user_from_session(socket, %{"user_id" => user_id}=session) do
+    user = Accounts.get_user!(user_id)
+    assign(
+      socket,
+      user: user
+    )
+  end
+
+  def _maybe_assign_user_from_session(socket, _), do: socket
+
+  def handle_info(params={:user_updated, %{registration_step: :unconfirmed_subscription}}, socket)do
+    IO.inspect(params, label: "HORORORO")
+    {:noreply, assign(socket, form_title: "Te enviamos un correo", registration_step: :unconfirmed_subscription)}
+  end
+
+  def handle_info(params={:session_user_updated, user}, socket)do
+    PhoenixLiveSession.put_session(socket, "user_id", user.id)
+    {:noreply, assign(socket, user: user)}
+  end
+
+  def handle_info({:live_session_updated, session}, socket) do
+    {:noreply, socket}
   end
 
   @impl true
-  def handle_params(params, _url, socket) do
+  def handle_params(params, url, socket) do
+    IO.inspect(params, label: "Front LiveView handled params")
     # get user from session and assign to socket
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
@@ -23,12 +82,18 @@ defmodule KombuchiServerWeb.SubscribeLive.Front do
     |> assign(:subscribe, nil)
   end
 
-  defp apply_action(socket, :index, _params) do
+  defp apply_action(socket, :index, params) do
+    case params do
+
+
+      params -> IO.inspect(params, label: "Unhandled socket :index action" )
+    end
+
     socket
     |> assign(:page_title, "Registratae a nuestras ofertas y noticias")
+    |> assign_new(:form_title, fn  -> "Subscribete a nuestras promociones y correos" end)
     |> assign(:subscribe, nil)
   end
-
 
 
 end

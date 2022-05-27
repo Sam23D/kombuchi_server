@@ -3,25 +3,21 @@
 <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7" >
 <h2 class="mb-6 text-2xl font-medium text-center" ><%= @title %></h2>
 <%# TODO verify this based on the liveview assigned action %>
-<%= if @registration_step in [:unconfirmed_subscription] do  %>
 
-<%= @registration_step %>
-<%# TODO add form for input email code validation %>
+
+
+
+
+<%= cond do  %>
+<%= @user && @user.confirmed_at ->  %>
+  <p>Wwe have confirmed used user</p>
+  <p><b><%= "#{@user.name}" %></b> si te gusta la idea de experimentar con tus sabores y combinaciones de frutas, pero no quieres el trabajo de fermentar tu kombucha, descubre nuestra dotacion a la medida, nosotros la fermentamos y tu escoges los ingredientes </p>
+  <p>Has <a href="#" class="text-indigo-500 underline">click aqui</a> para conocer mas</p>
+
+<%= @user && (not !!@user.confirmed_at)  -> %>
+  <p><b><%= "#{@user.name}" %></b> estas a un paso de verificcar tu cuenta, sigue el link que enviamos a tu correo para verificar tu cuenta o has <a href="#" class="text-indigo-500 underline" phx-click="send-verification-email" phx-target={@myself} >click aqui</a> y te lo enviaremos de nuevo</p>
   
-  <.form
-    let={f}
-    for={@changeset}
-    id="verify-subscribe-form"
-    phx-target={@myself}
-    phx-change="validate"
-    phx-submit="validate_subscribe">
-  
-    <%= text_input f, :verification_code, placeholder: "XXX-XXX", class: "block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none" %>
-    <%= error_tag f, :verification_code %> 
-
-  </.form>
-
-<% else %>
+<% true ->  %>
   <.form
     let={f}
     for={@changeset}
