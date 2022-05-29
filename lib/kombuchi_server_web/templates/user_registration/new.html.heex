@@ -1,26 +1,120 @@
-<h1>Register</h1>
+<section class="w-full px-6 pb-12 antialiased bg-white">
+  <div class="mx-auto max-w-7xl">
 
-<.form let={f} for={@changeset} action={Routes.user_registration_path(@conn, :create)}>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
-
-  <%= label f, :email %>
-  <%= email_input f, :email, required: true %>
-  <%= error_tag f, :email %>
-
-  <%= label f, :password %>
-  <%= password_input f, :password, required: true %>
-  <%= error_tag f, :password %>
-
-  <div>
-    <%= submit "Register" %>
+      <nav class="relative z-40 h-24 select-none" >
+          <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-200 md:overflow-visible lg:justify-center sm:px-4 md:px-2">
+              <div class="flex items-center justify-start w-1/4 h-full pr-4">
+                  <a href="#_" class="inline-block py-4 md:py-0">
+                      <span class="p-1 text-xl font-black leading-none text-gray-900"><span>tails</span><span class="text-indigo-600">.</span></span>
+                  </a>
+              </div>
+              <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                  <div class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
+                      <a href="#_" class="inline-flex items-center block w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden">tails<span class="text-indigo-600">.</span></a>
+                      <div class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 md:mt-0 md:flex-row md:items-center">
+                          <a href="/" class="inline-block w-full py-2 mx-0 ml-6 font-medium text-left text-indigo-600 md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">Pagina inicio</a>
+                      </div>
+                      <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/3 md:flex-row md:py-0">
+                          <a href="#" class="w-full px-6 py-2 mr-0 text-gray-700 md:px-0 lg:pl-2 md:mr-4 lg:mr-5 md:w-auto">Inicia sesion</a>
+                      
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </nav>
   </div>
-</.form>
+</section>
+<section class="bg-white py-20 lg:py-[80px] overflow-hidden relative z-10">
+   <div class="container items-center max-w-6xl px-4 px-10 mx-auto sm:px-20 md:px-32 lg:px-16">
+      <div class="flex flex-wrap lg:justify-between -mx-4">
+         <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
+            <div class="max-w-[570px] mb-12 lg:mb-0">
+               <h2 class=" text-dark mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[36px]">
+                Registrate a Rica kambushi
+               </h2>
+            <div class="">
+                <img class="h-32 sm:h-48 md:h-64 lg:h-80 w-full" src={ Routes.static_path(@conn, "/images/undraw_approve.svg") } />
+            </div>
 
-<p>
-  <%= link "Log in", to: Routes.user_session_path(@conn, :new) %> |
-  <%= link "Forgot your password?", to: Routes.user_reset_password_path(@conn, :new) %>
-</p>
+
+            </div>
+         </div>
+         <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
+            <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
+                <.form let={f} for={@changeset} action="" >
+                   
+                    <div class="mb-6">
+                        <label class="text-gray-600 text-lg" >Nombre</label> 
+                        <%= text_input f, :name, placeholder: "Nombre", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
+                      </div>
+                      <div class="mb-6">
+                        <label class="text-gray-600 text-lg" >Correo</label> 
+                        <%= text_input f, :email, placeholder: "Correo electronico", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
+                      </div>
+                      <div class="mb-2">
+                        <label class="text-gray-600 text-lg" >Password</label> 
+                        <%= password_input  f, :password, required: true, placeholder: "Password", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
+                      </div>
+                      <div class="mb-6">
+                        <%= password_input  f, :password_verify, required: true, placeholder: "Confirma tu password", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
+                      </div>
+                      <div>
+                         <button type="submit" class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg"
+                         >Quiero registrarme</button>
+                        </div>
+                    <div>
+                    </div>
+        
+                </.form>
+
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== Contact Section End -->
+
+<!-- Section 6 -->
+<section class="bg-white">
+  <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+      <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+          <div class="px-5 py-2">
+              <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  Acerca de nosotros
+              </a>
+          </div>
+          <div class="px-5 py-2">
+              <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  Blog
+              </a>
+          </div>
+          <div class="px-5 py-2">
+              <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  Nuestra kombucha
+              </a>
+          </div>
+          <div class="px-5 py-2">
+              <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                  Politicas de privacidad
+              </a>
+          </div>
+      </nav>
+      <div class="flex justify-center mt-8 space-x-6">
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Facebook</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+              <span class="sr-only">Instagram</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+              </svg>
+          </a>
+      </div>
+      <p class="mt-8 text-base leading-6 text-center text-gray-400">
+          © 2021 Kambuchi artesanall. si estamos registrados
+      </p>
+  </div>
+</section>
