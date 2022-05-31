@@ -24,7 +24,7 @@
                                 
                                 <a href="#dotacion" class="inline-flex items-center w-full px-6 py-3 text-sm font-medium leading-4 text-white bg-indigo-600 md:px-3 md:w-auto md:rounded-full lg:px-5 hover:bg-indigo-500 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-indigo-600">Subscribete!</a>
                             <% else %>
-                                <a href={Routes.user_session_path(@socket, :new)} class="w-full px-6 py-2 mr-0 text-gray-700 md:px-0 lg:pl-2 md:mr-4 lg:mr-5 md:w-auto">Cerrar sesion</a>
+                                <a href={Routes.user_session_path(@socket, :delete)} class="w-full px-6 py-2 mr-0 text-gray-700 md:px-0 lg:pl-2 md:mr-4 lg:mr-5 md:w-auto">Cerrar sesion</a>
                               
                             <% end %>
                         </div>
