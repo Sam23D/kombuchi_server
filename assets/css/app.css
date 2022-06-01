@@ -2,6 +2,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer components  {
+  .button-primary {
+    @apply relative w-full px-3 py-3 font-medium text-white bg-blue-600 rounded-[4px]
+  }
+  .common-input {
+    @apply appearance-none rounded-[4px] block w-full px-3 py-3 border bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10 
+  }
+  .invalid-feedback{
+    @apply text-red-400
+  }
+
+}
 /* This file is for your main application CSS */
 
 /* Alerts and form errors used by phx.new */
@@ -31,11 +43,6 @@
 }
 .alert:empty {
   display: none;
-}
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
 }
 
 /* LiveView specific classes for your customization */
