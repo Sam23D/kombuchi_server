@@ -26,14 +26,14 @@
     phx-change="validate"
     phx-submit="save">
   
-    <%= text_input f, :name, placeholder: "Nombre", class: "block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none" %>
-    <%= error_tag f, :name %> 
+    <%= text_input f, :name, placeholder: "Nombre", class: "common-input my-2" %>
+    <%= error_tag f, :name , "invalid-feedback"%> 
 
-    <%= text_input f, :email, placeholder: "Correo electronico", class: "block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none" %>
+    <%= text_input f, :email, placeholder: "Correo electronico", class: "common-input my-2" %>
     <%= error_tag f, :email %>
   
     <div>
-      <%= submit "Subscribirme", phx_disable_with: "Saving...", class: "w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg" %>
+      <%= submit "Subscribirme", phx_disable_with: "Saving...", class: "button-primary" %>
     </div>
   </.form>
   
