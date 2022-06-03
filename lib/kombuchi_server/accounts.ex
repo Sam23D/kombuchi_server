@@ -1,6 +1,16 @@
 defmodule KombuchiServer.Accounts do
   @moduledoc """
-  The Accounts context.
+My documentation goes here...
+<div class="mermaid">
+graph LR;
+classDef server fill:#D0B441,stroke:#AD9121,stroke-width:1px;
+classDef topic fill:#B5ADDF,stroke:#312378,stroke-width:1px;
+classDef db fill:#9E74BE,stroke:#4E1C74,stroke-width:1px;
+T1(TopicA):::topic --> G1{{GenServerA}}:::server;
+T1(TopicA):::topic --> G2{{GenServerB}}:::server;
+G2{{GenServerB}}:::server --> T2(TopicB):::topic;
+T2(TopicB):::topic ==> DB[("Storage#nbsp;")]:::db;
+</div>
   """
 
   import Ecto.Query, warn: false
@@ -282,6 +292,7 @@ defmodule KombuchiServer.Accounts do
       {:error, :already_confirmed}
     else
       {encoded_token, user_token} = UserToken.build_email_token(user, "confirm")
+      IO.inspect(encoded_token, label: "encoded_token")
       Repo.insert!(user_token)
       UserNotifier.deliver_confirmation_instructions(user, confirmation_url_fun.(encoded_token))
     end
@@ -293,14 +304,21 @@ defmodule KombuchiServer.Accounts do
   If the token matches, the user account is marked as confirmed
   and the token is deleted.
   """
-  def confirm_user(token) do
+  def confirm_user(token, user_params \\ %{}) do # TODO take user
     with {:ok, query} <- UserToken.verify_email_token_query(token, "confirm"),
-         %User{} = user <- Repo.one(query),
-         {:ok, %{user: user}} <- Repo.transaction(confirm_user_multi(user)) do
+      %User{} = user <- Repo.one(query) |> IO.inspect(label: "User found"), # TBD remove this when user passed as param
+      {:ok, %{user: user}} <- Repo.transaction(confirm_user_multi(user))  # TBD modify confirm multi user, to take password and update it into the user
+    do
       {:ok, user}
     else
       _ -> :error
     end
+  end
+
+  defp confirm_user_multi(user, user_params) do
+    user
+    |> confirm_user_multi()
+    |> Ecto.Multi.update(:user, User.confirm_changeset(user)) # TODO pass name, password & verify
   end
 
   defp confirm_user_multi(user) do
@@ -325,6 +343,7 @@ defmodule KombuchiServer.Accounts do
     {encoded_token, user_token} = UserToken.build_email_token(user, "reset_password")
     Repo.insert!(user_token)
     UserNotifier.deliver_reset_password_instructions(user, reset_password_url_fun.(encoded_token))
+    |> IO.inspect(label: "pss reset email")
   end
 
   @doc """

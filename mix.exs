@@ -10,8 +10,24 @@ defmodule KombuchiServer.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      docs: [
+        _mermaid_config(),
+        main: "MyApp", # The main page in the docs
+        extras: ["README.md"]
+      ]
     ]
+  end
+
+  def _mermaid_config()do
+    {:before_closing_body_tag, fn
+      :html ->
+        """
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad: true})</script>
+        """
+      _ -> ""
+    end}
   end
 
   # Configuration for the OTP application.
@@ -51,7 +67,8 @@ defmodule KombuchiServer.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
     ]
   end
 
