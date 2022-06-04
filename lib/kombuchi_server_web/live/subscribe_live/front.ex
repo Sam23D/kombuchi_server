@@ -30,32 +30,31 @@ defmodule KombuchiServerWeb.SubscribeLive.Front do
 
   @impl true
   def mount(_params, session, socket) do
-    # socket = socket
-    # TODO subscribe the liveview to the session
-    # |> PhoenixLiveSession.maybe_subscribe(session)
     new_socket = socket
     |> PhoenixLiveSession.maybe_subscribe(session)
     |> assign_new(:user, fn -> nil end)
     |> _maybe_assign_user_from_session(session)
     |> assign(subscribe: nil, registration_step: :unsubscribed)
-    |> IO.inspect(label: "LV mount socket ")
-    session
-    |> IO.inspect(label: "LV socket session")
+
     {:ok, new_socket}
   end
 
+  """
+  Will attach the user from a "user_token" or a "user_id" found in the session struct
+  """
+  def _maybe_assign_user_from_session(socket, %{"user_token" => user_token}=session) do
+    IO.inspect("Getting user from user_token")
+    user = Accounts.get_user_by_session_token(session["user_token"])
+    assign(socket, user: user)
+  end
   def _maybe_assign_user_from_session(socket, %{"user_id" => user_id}=session) do
     user = Accounts.get_user!(user_id)
-    assign(
-      socket,
-      user: user
-    )
+    assign(socket, user: user)
   end
-
   def _maybe_assign_user_from_session(socket, _), do: socket
 
   def handle_info(params={:user_updated, %{registration_step: :unconfirmed_subscription}}, socket)do
-    IO.inspect(params, label: "HORORORO")
+
     {:noreply, assign(socket, form_title: "Te enviamos un correo", registration_step: :unconfirmed_subscription)}
   end
 
@@ -70,7 +69,6 @@ defmodule KombuchiServerWeb.SubscribeLive.Front do
 
   @impl true
   def handle_params(params, url, socket) do
-    IO.inspect(params, label: "Front LiveView handled params")
     # get user from session and assign to socket
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end

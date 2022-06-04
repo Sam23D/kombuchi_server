@@ -1,17 +1,61 @@
 defmodule KombuchiServer.Accounts do
-  @moduledoc """
-My documentation goes here...
+@moduledoc """
+Login and user sessions are done torugh LiveSession and using the default user implementation for phoenix, done by the phoenix escafold, plus a small set of improvements done by us.
+
+The users have a table `users` and `user_tokens` to track the sessions, each token could have a sesion context, and will enable the user to hold a session, as we are using live sessions, all sesions are erased when from memory when the server restarts or then the user logs out
+you can check the [`User`](`KombuchiServer.Accounts.User`) & [`UserToken`](`KombuchiServer.Accounts.UserToken`) modules
+We use diferent Modules for the whole process of user registration verifications and login, this are:
+- `UserRegistration`
+- `UserConfirmation`
+- `UserSession`
+- `UserResetPassword`
+- `UserSettings`
+#### 1 - How to register a user
+``` elixir
+# internal API flow
+post "/users/register", UserRegistrationController, :create
+Accounts.register_user(user_params)
+```
 <div class="mermaid">
-graph LR;
-classDef server fill:#D0B441,stroke:#AD9121,stroke-width:1px;
-classDef topic fill:#B5ADDF,stroke:#312378,stroke-width:1px;
-classDef db fill:#9E74BE,stroke:#4E1C74,stroke-width:1px;
-T1(TopicA):::topic --> G1{{GenServerA}}:::server;
-T1(TopicA):::topic --> G2{{GenServerB}}:::server;
-G2{{GenServerB}}:::server --> T2(TopicB):::topic;
-T2(TopicB):::topic ==> DB[("Storage#nbsp;")]:::db;
+sequenceDiagram;
+actor User;
+User->>/users/register: POST;
+Note right of User: {email: str};
 </div>
-  """
+
+#### 2 - How to verify an account
+Users have a `confirmed_at` atttribute that is set to true, when a confirm token is ssubmited to the `/verify` endpoint
+```
+put "/users/confirm/:token", UserConfirmationController, :update
+```
+<div class="mermaid">
+sequenceDiagram;
+actor User;
+User->>/users/confirm/{{token}}: PUT;
+Note right of User: {token: str};
+</div>
+
+#### 3 - How to login and logout
+To login
+
+```
+post "/users/log_in", UserSessionController, :create
+```
+
+To logout
+```
+get "/users/log_out", UserSessionController, :delete
+```
+<div class="mermaid">
+sequenceDiagram;
+actor User;
+User->>/log_in: GET;
+Note right of User: { };
+actor User2;
+User2->>/log_out: GET;
+Note right of User2: { };
+</div>
+"""
 
   import Ecto.Query, warn: false
   alias KombuchiServer.Repo

@@ -13,7 +13,7 @@ defmodule KombuchiServer.MixProject do
       deps: deps(),
       docs: [
         _mermaid_config(),
-        main: "MyApp", # The main page in the docs
+        main: "KombuchiServer", # The main page in the docs
         extras: ["README.md"]
       ]
     ]

@@ -97,10 +97,12 @@ defmodule KombuchiServerWeb.Router do
   scope "/", KombuchiServerWeb do
     pipe_through [:browser]
 
+    get "/users/log_out", UserSessionController, :delete
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new
     post "/users/confirm", UserConfirmationController, :create
     get "/users/confirm/:token", UserConfirmationController, :edit
+    put "/users/confirm/:token", UserConfirmationController, :update
     post "/users/confirm/:token", UserConfirmationController, :update
   end
 end
