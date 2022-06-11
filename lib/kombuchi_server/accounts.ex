@@ -49,10 +49,10 @@ get "/users/log_out", UserSessionController, :delete
 <div class="mermaid">
 sequenceDiagram;
 actor User;
-User->>/log_in: GET;
+User->>/users/log_in: POST;
 Note right of User: { };
 actor User2;
-User2->>/log_out: GET;
+User2->>/users/log_out: GET;
 Note right of User2: { };
 </div>
 """

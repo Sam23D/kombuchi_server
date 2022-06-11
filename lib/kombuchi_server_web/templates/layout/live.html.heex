@@ -1,5 +1,5 @@
 
-<%= render "_user_menu.html", conn: @socket, user: @user %>
+<%= render "_user_menu.html", conn: @socket, user: @user, nav_link: [] %>
 <p class="alert alert-info" role="alert"
   phx-click="lv:clear-flash"
   phx-value-key="info"><%= live_flash(@flash, :info) %></p>
