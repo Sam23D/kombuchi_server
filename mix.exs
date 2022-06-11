@@ -11,11 +11,7 @@ defmodule KombuchiServer.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      docs: [
-        _mermaid_config(),
-        main: "KombuchiServer", # The main page in the docs
-        extras: ["README.md"]
-      ]
+      docs: docs()
     ]
   end
 
@@ -28,6 +24,18 @@ defmodule KombuchiServer.MixProject do
         """
       _ -> ""
     end}
+  end
+
+  defp docs do
+    [
+      _mermaid_config(),
+      main: "KombuchiServer", # The main page in the docs
+      extras: [
+        "README.md",
+        "docs/common_style.md"
+      ]
+    ]
+
   end
 
   # Configuration for the OTP application.
@@ -69,6 +77,7 @@ defmodule KombuchiServer.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
+      {:makeup_html, ">= 0.0.0", only: :dev, runtime: false},
     ]
   end
 

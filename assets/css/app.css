@@ -3,14 +3,33 @@
 @import "tailwindcss/utilities";
 
 @layer components  {
+
   .button-primary {
-    @apply relative w-full px-3 py-3 font-medium text-white bg-blue-600 rounded-[4px]
+    @apply relative w-full max-w-sm h-14 font-medium text-white bg-blue-600 opacity-30 hover:opacity-100 hover:bg-blue-400 rounded-[4px]
   }
   .common-input {
     @apply appearance-none rounded-[4px] block w-full px-3 py-3 border bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10 
   }
   .invalid-feedback{
     @apply text-red-400
+  }
+  .common-section-cointainer {
+    @apply w-full md:w-11/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 px-4 mx-auto mt-6
+  }
+  .common-section-overlay{
+   @apply bg-opacity-50 h-screen
+  }
+  .common-container {
+    @apply mx-auto container max-w-4xl md:w-4/5 shadow-md
+  }
+  .common-form-header{
+    @apply rounded-t mb-0 px-6 py-6
+  }
+  .common-form-section{
+    @apply md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center
+  }
+  .common-form-content{
+    @apply md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center
   }
 
 }
