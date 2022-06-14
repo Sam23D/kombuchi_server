@@ -1,76 +1,73 @@
-
-<section class="w-full px-6 pb-12 antialiased bg-white">
-    <div class="mx-auto max-w-7xl">
-
-        <!-- Main Hero Content -->
-        <div id="inicio" class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
-            <h1 class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl"><span class="inline md:block">Cambia tu vida, tomando</span> <span class="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-indigo-500 md:inline-block">Rica kambuchi</span></h1>
-            <div class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg">Se parte de la nueva ola refrescante que mejora tu salud y bienestar tomando kombucha, bebida saludable y probiotica, excelente remplazo para el refresco.</div>
-            <div class="flex flex-col items-center mt-12 text-center">
-                <span class="relative inline-flex w-full md:w-auto">
-                    <a href="#_" type="button" class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-indigo-600 border border-transparent rounded-full md:w-auto hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
-                        Comprar ahora!
-                    </a>
-                    <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-white bg-green-400 rounded-full">A solo: $35/500ml</span>
-                </span>
-                <a href="#" class="mt-3 text-sm text-indigo-500">Ver puntos de venta</a>
-            </div>
+<section class="text-white bg-gray-900">
+    <div class="max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+          Experimenta algo nuevo.
+  
+          <span class="sm:block">
+            Toma rica Kambuucha.
+          </span>
+        </h1>
+  
+        <p class="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!
+        </p>
+  
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a class="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring" href="#dotacion">
+            Crea tus propios sabores
+          </a>
+  
+          <a class="block w-full px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring" href={Routes.seller_index_path(@socket, :index)}>
+            Puntos de venta
+          </a>
         </div>
-        <!-- End Main Hero Content -->
-
+      </div>
     </div>
 </section>
 
-<!-- Section 2 -->
-<section id="beneficios" class="py-5 md:py-20 bg-gray-50">
-  <div class="container items-center max-w-6xl xs:px-4 px-10 mx-auto sm:px-20 md:px-32 lg:px-16">
-    <div class="flex flex-wrap items-center -mx-3">
-      <div class="order-1 w-full px-3 lg:w-1/2 lg:order-0">
-        <div class="w-full lg:max-w-md">
-          <h2 class="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading">Cargada de beneficios para tu vida!</h2>
-          <p class="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">Nuestra kombucha no es pasteurizada para mantener todos los beneficios de los microrganismos generados en la fermentacion.</p>
-          <ul>
-            <li class="flex items-center py-2 space-x-4 xl:py-3">
-              <svg class="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
-              <span class="font-medium text-gray-500">Kombucha elaborada especialmente para ti en contenedores de crystal</span>
-            </li>
-            <li class="flex items-center py-2 space-x-4 xl:py-3">
-              <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+<header class="bg-white dark:bg-gray-800">
 
-              <span class="font-medium text-gray-500">Contiene todos los beneficios de probioticos, vitaminas, minerales y aminoacidos generados durante la fermentacion</span>
-            </li>
-            <li class="flex items-center py-2 space-x-4 xl:py-3">
-                          <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+    <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
+        <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
 
-              <span class="font-medium text-gray-500">Elaborada con fruta natural y el sabor que a ti mas te gusta.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-12 lg:w-1/2 order-0 lg:order-1 lg:mb-0">
-        <img class="h-48 md:h-64 lg:h-80 w-full" src={ Routes.static_path(@socket, "/images/undraw_teacup.svg") } />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Section 3 -->
-<section id="dotacion" class="w-full px-8 py-16 bg-gray-100 xl:px-8">
-    <div class="max-w-5xl mx-auto">
-        <div class="flex flex-col items-center md:flex-row">
-
-            <div class="w-full space-y-5 md:w-3/5 md:pr-16">
-                <p class="font-medium text-blue-500 uppercase">REIMAGINA TU EXPERIENCIA CON LA KOMBUCHA</p>
-                <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
-                    Tu dotacion personalizada de kombucha
-                </h2>
-                <p class="text-xl text-gray-600 md:pr-16">Con tu dotacion mensual, puedes experimentar con los diferentes sabores de nuestra kombucha natural cada semana, pide de los sabores de nuestra seleccion o arma tu propio sabor, contactanos!</p>
+            <div class="max-w-lg lg:mx-12 lg:order-2">
+                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">Cargada de beneficios para tu vida!</h1>
+                <p class="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">Nuestra kombucha no es pasteurizada para mantener todos los beneficios de los microrganismos generados en la fermentacion.</p>
+                <ul>
+                    <li class="flex items-center py-2 space-x-4 xl:py-3">
+                      <svg class="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                      <span class="font-medium text-gray-500">Kombucha elaborada especialmente para ti en contenedores de crystal</span>
+                    </li>
+                    <li class="flex items-center py-2 space-x-4 xl:py-3">
+                      <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        
+                      <span class="font-medium text-gray-500">Contiene todos los beneficios de probioticos, vitaminas, minerales y aminoacidos generados durante la fermentacion</span>
+                    </li>
+                    <li class="flex items-center py-2 space-x-4 xl:py-3">
+                                  <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+        
+                      <span class="font-medium text-gray-500">Elaborada con fruta natural y el sabor que a ti mas te gusta.</span>
+                    </li>
+                  </ul>
             </div>
+        </div>
 
-            <div class="w-full mt-16 md:mt-0 md:w-2/5">
+        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+       
+            <img class="h-48 md:h-64 lg:h-80 w-full" src={ Routes.static_path(@socket, "/images/undraw_teacup.svg") } />
+         </div>
+    </div>
+</header>
 
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="container px-4 py-16 mx-auto lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-semibold tracking-tight text-gray-800 xl:text-4xl dark:text-white">
+            Subscribete y mantente informado de nuestras novedades.
+        </h2>
+        
+        <div class="mt-8 lg:mt-0 md:w-2/5">
             <.live_component
                 module={KombuchiServerWeb.SubscribeLive.FormComponent}
                 id={:new}
@@ -82,173 +79,202 @@
                 
                 />
 
-            </div>
-
         </div>
     </div>
 </section>
 
-<!-- Section 4 -->
-<section id="comprar" class="box-border py-8 leading-7 text-gray-900 bg-white border-0 border-gray-200 border-solid sm:py-12 md:py-16 lg:py-24">
-    <div class="box-border max-w-6xl px-4 pb-12 mx-auto border-solid sm:px-6 md:px-6 lg:px-4">
-        <div class="flex flex-col items-center leading-7 text-center text-gray-900">
-            <h2 class="box-border m-0 text-3xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
-                Precio compra en nuestra tienda en linea
-            </h2>
-            <p class="box-border mt-4 text-2xl leading-normal text-gray-900 border-solid">
-                Recoge en nuestros puntos de encuentro o buscanos en uber eats.
-            </p>
-        </div>
-        <div class="grid max-w-md mx-auto mt-6 overflow-hidden leading-7 text-gray-900 border border-b-4 border-gray-300 border-blue-600 rounded-xl md:max-w-lg lg:max-w-none sm:mt-10 lg:grid-cols-3">
-            <div class="box-border px-4 py-8 mb-6 text-center bg-white border-solid lg:mb-0 sm:px-4 sm:py-8 md:px-8 md:py-12 lg:px-10">
-                <h3 class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-solid sm:text-3xl md:text-4xl">
-                    Kombucha enbotelllada
-                </h3>
-                <p class="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                    Puedes encontrar y comprar nuestra kombucha en los siguientes puntos de venta
-                </p>
-                <div class="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
-                    <p class="box-border m-0 text-5xl font-semibold leading-normal text-center border-0 border-gray-200">
-                        $35
-                    </p>
-                    <p class="box-border my-0 ml-4 mr-0 text-xs text-left border-0 border-gray-200">
-                        500 <span class="block">ml</span>
-                    </p>
-                </div>
 
-                <button class="inline-flex items-center justify-center w-full py-3 mt-6 font-sans text-sm leading-none text-center text-blue-600 no-underline bg-transparent border border-b-2 border-blue-600 rounded-md cursor-pointer hover:bg-blue-600 hover:border-blue-600 hover:text-white sm:text-base sm:mt-8 md:text-lg">
+<div class="bg-white dark:bg-gray-800">
+    <div class="flex flex-col items-center leading-7 pt-6 text-center text-gray-200">
+        <h2 class="box-border m-0 text-3xl font-semibold leading-tight tracking-tight border-solid sm:text-4xl md:text-5xl">
+            Precio compra en nuestra tienda en linea
+        </h2>
+        <p class="box-border mt-4 text-2xl leading-normal border-solid">
+            Recoge en nuestros puntos de encuentro o buscanos en uber eats.
+        </p>
+    </div>
+    <div class="container px-6 py-8 mx-auto">
+        <div class="flex flex-col items-center justify-center space-y-8 lg:-mx-4 lg:flex-row lg:items-stretch lg:space-y-0">
+            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex-shrink-0">
+                    <h2 class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700">
+                        3 Pack
+                    </h2>
+                </div>
+                <div class="flex-shrink-0">
+                    <span class="pt-2 text-4xl font-bold text-gray-800 uppercase dark:text-gray-100" >$100 </span>
+                    
+                    <span class="text-gray-500 dark:text-gray-400">
+                        /1.5 lts
+                    </span>
+                </div>
+                <ul class="flex-1 space-y-4">
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Up to 5 projects
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Up to 10 collaborators
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        2Gb of storage
+                    </li>
+                </ul>
+
+                <button
+                    class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+                >
                     Ver puntos de venta
                 </button>
             </div>
-            <div class="box-border px-4 py-8 mb-6 text-center bg-gray-100 border border-gray-300 border-solid lg:mb-0 sm:px-4 sm:py-8 md:px-8 md:py-12 lg:px-10">
-                <h3 class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-solid sm:text-3xl md:text-4xl">
-                    Dotacion de kombuchcha
-                </h3>
-                <p class="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                    servicio de 6 lts de kombucha a la quincena, 3 por semana con envio a domicilio
-                </p>
-                <div class="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
-                    <p class="box-border m-0 text-6xl font-semibold leading-normal text-center border-0 border-gray-200">
-                        $250
-                    </p>
-                    <p class="box-border my-0 ml-4 mr-0 text-xs text-left border-0 border-gray-200">
-                        6 lts por quincena <span class="block">3 por semana</span>
-                    </p>
+
+            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex-shrink-0">
+                    <h2
+                        class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700"
+                    >
+                        Botella
+                    </h2>
                 </div>
-                <button class="inline-flex items-center justify-center w-full py-3 mt-6 font-sans text-sm leading-none text-center text-white no-underline bg-blue-600 border-b-4 border-blue-700 rounded cursor-pointer hover:text-white sm:text-base sm:mt-8 md:text-lg">
-                    Comenzar mi dotacion!
+                <div class="flex-shrink-0">
+                    <span
+                        class="pt-2 text-4xl font-bold text-gray-800 uppercase dark:text-gray-100"
+                    >
+                        $34.90
+                    </span>
+                    <span class="text-gray-500 dark:text-gray-400">
+                        /500 ml
+                    </span>
+                </div>
+                <ul class="flex-1 space-y-4">
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Up to 10 projects
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Up to 20 collaborators
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        10Gb of storage
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Real-time collaborations
+                    </li>
+                </ul>
+
+                <button
+                    class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+                >
+                    Ver puntos de venta
                 </button>
             </div>
-            <div class="box-border px-4 py-8 text-center bg-white border-solid sm:px-4 sm:py-8 md:px-8 md:py-12 lg:px-10">
-                <h3 class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-solid sm:text-3xl md:text-4xl">
-                    Kombucha embotellada pack
-                </h3>
-                <p class="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                    Pack de 3 o 6 botellas de kombucha</p>
-                <div class="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
-                    <p class="box-border m-0 text-5xl font-semibold leading-normal text-center border-0 border-gray-200">
-                        $99
-                    </p>
-                    <p class="box-border my-0 ml-4 mr-0 text-xs text-center border-0 border-gray-200">
-                        1.5 <span class="block">lts</span>
-                    </p>
+
+            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex-shrink-0">
+                    <h2
+                        class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700"
+                    >
+                        Dotacion a domicilio
+                    </h2>
                 </div>
-                <div class="flex items-center justify-center leading-7 text-gray-900 border-0 border-solid ">
-                    <p class="box-border m-0 text-5xl font-semibold leading-normal text-center border-0 border-gray-200">
-                        $200
-                    </p>
-                    <p class="box-border my-0 ml-4 mr-0 text-xs text-center border-0 border-gray-200">
-                        3 <span class="block">lts</span>
-                    </p>
+                <div class="flex-shrink-0">
+                    <span
+                        class="pt-2 text-4xl font-bold text-gray-800 uppercase dark:text-gray-100"
+                    >
+                        $249.90
+                    </span>
+                    <span class="text-gray-500 dark:text-gray-400">
+                        /mes
+                    </span>
                 </div>
-                <button class="inline-flex items-center justify-center w-full py-3 mt-6 font-sans text-sm leading-none text-center text-blue-600 no-underline bg-transparent border border-b-2 border-blue-600 rounded cursor-pointer hover:bg-blue-600 hover:border-blue-600 hover:text-white sm:text-base sm:mt-8 md:text-lg">
-                    Realizar pedido
+                <ul class="flex-1 space-y-4">
+                    <li class="text-gray-500 dark:text-gray-400">
+                        6 litros
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Arma tu ccombinaccion de sabores
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        1.5 por semana
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Hecho a tu medida y tu gusto
+                    </li>
+                    <li class="text-gray-500 dark:text-gray-400">
+                        Hasta tu domicilio
+                    </li>
+                </ul>
+
+                <button
+                    class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+                >
+                    Start free trial
                 </button>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Section 5 -->
-<section id="faq" class="py-24 bg-white">
-    <div class="px-8 mx-auto max-w-7xl lg:px-16">
-        <h2 class="mb-4 text-xl font-bold md:text-3xl">Frequently Asked Questions</h2>
-        <div class="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
-            <div>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Que es la kombucha?</h5>
-                <p>Tails is a drag and drop page builder built on Top of TailwindCSS. You can drop components to create a page that you can export.</p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Que beneficios tiene tomar kombucha?</h5>
-                <p>Absolutely, you can try out tails for free; however, if you wish to access all the components and export the page you'll need to upgrade your account.</p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Contiene azucar?</h5>
-                <p>
-                    You can upgrade your account by visiting <a href="https://devdojo.com/pro" class="text-indigo-500 underline">The Pro Upgrade Page</a>. You will also gain access to many other applications and sections of the site.
-                    <a href="https://help.hellonext.co/faq/startup-eligibility/" target="_blank">here</a>.
-                </p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Porcion recomendada?</h5>
-                <p>Absolutely, you can try out tails for free; however, if you wish to access all the components and export the page you'll need to upgrade your account.</p>
+<section class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-12 mx-auto">
+        <h1 class="text-2xl font-semibold text-center text-gray-800 lg:text-4xl dark:text-white">Preguntas frecuentes</h1>
+
+        <div class="mt-8 xl:mt-16 lg:flex lg:-mx-12">
+
+            <div class="flex-1 mt-8 lg:mx-12 lg:mt-0">
+                <div>
+                    <button class="flex items-center focus:outline-none">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+
+                        <h1 class="mx-4 text-xl text-gray-700 dark:text-white">Que es la kombucha?</h1>
+                    </button>
+
+                    <div class="flex mt-8 md:mx-10">
+                        <span class="border border-blue-500"></span>
+
+                        <p class="max-w-3xl px-4 text-gray-500 dark:text-gray-300">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eum quae. Harum officiis reprehenderit ex quia ducimus minima id provident molestias optio nam vel, quidem iure voluptatem, repellat et ipsa.
+                        </p>
+                    </div>
+                </div>
                 
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Que es una bebida probiotica?</h5>
-                <p>
-                    You will have unlimited access to all your pre-built pages; however, if you want to be able to download and export your pages, you'll need a pro account.
-                    <a href="https://paddle.com" target="_blank">Paddle</a> for processing payments.
-                </p>
-            </div>
-            <div>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Como funciona las dotracion de kombucha?</h5>
-                <p>Implementation in your project is very simple. You can use the exported page as a starting point, or you can copy and paste the HTML into your own page.</p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">De que sabores puede ser mi kombucha</h5>
-                <p>You have unlimited use to the templates used in Tails; however, you cannot re-use the templates to sell for others to use.</p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Como puedo cancelar mi dotacion de kombucha?</h5>
-                <p>Of course, you can feel free to cancel your account at anytime, and you can feel free to come back and upgrade again whenever you're ready.</p>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-900">Cuanto es la mayor cantidad de kombucha que puedo pedir en mi dotacicon?</h5>
-                <p>If you need assistance implementing the templates into your project you can contact support or you can visit our <a href="https://devdojo.com/questions" class="text-indigo-500 underline">question section</a>.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
 
-<!-- Section 6 -->
-<section class="bg-white">
-    <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-        <nav class="flex flex-wrap justify-center -mx-5 -my-2">
-            <div class="px-5 py-2">
-                <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                    Acerca de nosotros
-                </a>
+                <div>
+                    <button class="flex items-center focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+
+                        <h1 class="mx-4 text-xl text-gray-700 dark:text-white">Que beneficios tiene tomar kombucha y bebidas probioticas?</h1>
+                    </button>
+                </div>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+
+                <div>
+                    <button class="flex items-center focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+
+                        <h1 class="mx-4 text-xl text-gray-700 dark:text-white">Como funciona las dotracion de rica kombucha?</h1>
+                    </button>
+                </div>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+
+                <div>
+                    <button class="flex items-center focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+
+                        <h1 class="mx-4 text-xl text-gray-700 dark:text-white">Cuales son los puntos de venta</h1>
+                    </button>
+                </div>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+
             </div>
-            <div class="px-5 py-2">
-                <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                    Blog
-                </a>
-            </div>
-            <div class="px-5 py-2">
-                <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                    Nuestra kombucha
-                </a>
-            </div>
-            <div class="px-5 py-2">
-                <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                    Politicas de privacidad
-                </a>
-            </div>
-        </nav>
-        <div class="flex justify-center mt-8 space-x-6">
-            <a href="#" class="text-gray-400 hover:text-gray-500">
-                <span class="sr-only">Facebook</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-gray-500">
-                <span class="sr-only">Instagram</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
         </div>
-        <p class="mt-8 text-base leading-6 text-center text-gray-400">
-            © 2021 Kambuchi artesanall. si estamos registrados
-        </p>
     </div>
 </section>

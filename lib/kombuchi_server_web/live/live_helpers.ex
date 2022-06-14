@@ -30,7 +30,7 @@ defmodule KombuchiServerWeb.LiveHelpers do
     <div id="modal" class="z-50 w-full fixed flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:block sm:p-0" phx-remove={hide_modal()}>
       <div class="flex justify-center w-full pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
-        <div class="fixed z-45 inset-0 w-full h-full bg-black bg-opacity-100 transition-opacity" aria-hidden="false"></div>
+        <div class="fixed z-60 inset-0 w-full h-full bg-black bg-opacity-40 transition-opacity" aria-hidden="false"></div>
 
         <div
           id="modal-content"
