@@ -1,48 +1,51 @@
-<section class="bg-white py-20 lg:py-[80px] overflow-hidden relative z-10">
-   <div class="container items-center max-w-6xl px-4 px-10 mx-auto sm:px-20 md:px-32 lg:px-16">
-      <div class="flex flex-wrap lg:justify-between -mx-4">
-         <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
-            <div class="max-w-[570px] mb-12 lg:mb-0">
-               <h2 class=" text-dark mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[36px]">
-                Registrate a Rica kambushi
-               </h2>
-            <div class="">
-                <img class="h-32 sm:h-48 md:h-64 lg:h-80 w-full" src={ Routes.static_path(@conn, "/images/undraw_approve.svg") } />
+<header class="bg-gray-900 pattern md:h-4/6 lg:h-5/6">
+    <div class="container px-6 mx-auto">
+
+        <div class="flex flex-col items-center py-6 lg:h-[32rem] lg:flex-row">
+            <div class="lg:w-1/2">
+                <h2 class="text-4xl font-semibold text-gray-100">Rica kombuchi</h2>
+
+                <h3 class="text-xl font-bold text-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-purple-500 to-pink-600">
+                    Obten un 30% de descuento en tu primera dotacion
+                </h3>
+
+                <p class="mt-3 text-gray-100">Registrate y obten nuestras noticias en tu correo.</p>
             </div>
 
+            <div class="flex mt-8 w-3/4 md:max-w-sm lg:w-1/2 lg:justify-end lg:mt-0">
+                <div class="flex-1 bg-white rounded-lg dark:bg-gray-800">
+                    <div class="p-5 text-center">
+                        <h2 class="text-2xl font-semibold text-gray-700 dark:text-white fo">Registrate</h2>
 
-            </div>
-         </div>
-         <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
-            <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-                <.form let={f} for={@changeset} action="" >
-                   
-                    <div class="mb-6">
-                        <label class="text-gray-600 text-lg" >Nombre</label> 
-                        <%= text_input f, :name, placeholder: "Nombre", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
-                      </div>
-                      <div class="mb-6">
-                        <label class="text-gray-600 text-lg" >Correo</label> 
-                        <%= text_input f, :email, placeholder: "Correo electronico", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
-                      </div>
-                      <div class="mb-2">
-                        <label class="text-gray-600 text-lg" >Password</label> 
-                        <%= password_input  f, :password, required: true, placeholder: "Password", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
-                      </div>
-                      <div class="mb-6">
-                        <%= password_input  f, :password_verify, required: true, placeholder: "Confirma tu password", class: " w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary " %>
-                      </div>
-                      <div>
-                         <button type="submit" class="button-primary"
-                         >Quiero registrarme</button>
+
+                        <.form let={f} for={@changeset} action="" >
+            
+                            <div class="mb-6">
+                                <%= text_input f, :name, placeholder: "Nombre", class: "block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring" %>
+                            </div>
+                            <div class="mb-6">
+                                <%= text_input f, :email, placeholder: "Correo electronico",  class: "block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring" %>
+                            </div>
+                            <div class="mb-2">
+                                <%= password_input  f, :password, required: true, placeholder: "Password",  class: "block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring" %>
+                            </div>
+                            <div class="mb-6">
+                                <%= password_input  f, :password_verify, required: true, placeholder: "Confirma tu password",  class: "block w-full px-4 py-2 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring" %>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mt-4">
+                            <a href={Routes.user_session_path(@conn, :new)} class="text-sm text-gray-600 dark:text-gray-200 hover:underline">Inicia sesion</a>
+
+                            <button class="px-4 py-2 font-semibold text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-800 dark:focus:bg-gray-700">Registrarme</button>
                         </div>
-                    <div>
-                    </div>
-        
-                </.form>
+                            <div>
+                            </div>
+                
+                        </.form>
 
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-</section>
+        </div>
+    </div>
+</header>

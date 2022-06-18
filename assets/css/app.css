@@ -5,11 +5,14 @@
 @layer components  {
 
   .button-primary {
-    @apply relative w-full max-w-sm h-14 font-medium text-white bg-blue-600 opacity-30 hover:opacity-100 hover:bg-blue-400 rounded-[4px]
+    @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600
+  }
+  .button-secondary {
+    @apply flex items-center justify-center py-1 text-gray-600 transition-colors duration-200 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600
   }
   .common-input {
-    @apply appearance-none rounded-[4px] block w-full px-3 py-3 border bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-blue-600 focus:border-blue-600 focus:z-10 
-  }
+    @apply block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300
+   }
   .invalid-feedback{
     @apply text-red-400
   }
@@ -30,6 +33,9 @@
   }
   .common-form-content{
     @apply md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center
+  }
+  .common-form-anchor{
+    @apply text-xs text-gray-500 dark:text-gray-300 hover:underline
   }
 
 }

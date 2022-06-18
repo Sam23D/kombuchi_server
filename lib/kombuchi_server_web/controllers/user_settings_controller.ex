@@ -6,11 +6,30 @@ defmodule KombuchiServerWeb.UserSettingsController do
 
   plug :assign_email_and_password_changesets
 
-  def edit(conn, _params) do
+  def edit(conn, params) do
+    IO.inspect(params,label: "edit EMAIL")
     render(conn, "edit.html", user: conn.assigns.current_user)
   end
 
+
+  @doc """
+  Should contain info about user names, email, phone, adresses management, and payments_methods preview
+  """
+  def profile(conn, params) do
+    IO.inspect(params,label: "edit EMAIL")
+    render(conn, "profile.html", user: conn.assigns.current_user)
+  end
+
+  @doc """
+  Should contain info about subscriiptions, billing and business high level abstractions
+  """
+  def dashboard(conn, params) do
+    IO.inspect(params,label: "edit EMAIL")
+    render(conn, "dashboard.html", user: conn.assigns.current_user)
+  end
+
   def update(conn, %{"action" => "update_email"} = params) do
+    IO.inspect(params,label: "UPDAFING EMAIL")
     %{"current_password" => password, "user" => user_params} = params
     user = conn.assigns.current_user
 
