@@ -46,6 +46,14 @@ defmodule KombuchiServer.Accounts.User do
 
   end
 
+  def user_confirmation_changeset(user, attrs, opts \\ [])do
+    user
+    |> cast(attrs, [:name, :password])
+    |> validate_required([:name, :password])
+    |> validate_password(opts)
+    # TODO password & confirmation verify
+  end
+
   defp validate_email(changeset) do
     changeset
     |> validate_required([:email])

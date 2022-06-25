@@ -28,6 +28,13 @@ defmodule KombuchiServerWeb.Router do
       live "/user_register", SubscribeLive.Front, :user_register
     end
 
+    live "/sellers", SellerLive.Index, :index
+    live "/sellers/new", SellerLive.Index, :new
+    live "/sellers/:id/edit", SellerLive.Index, :edit
+
+    live "/sellers/:id", SellerLive.Show, :show
+    live "/sellers/:id/show/edit", SellerLive.Show, :edit
+
 
     live "/subscribers", SubscribeLive.Index, :index
     live "/subscribers/new", SubscribeLive.Index, :new
@@ -73,6 +80,8 @@ defmodule KombuchiServerWeb.Router do
 
   ## Authentication routes
 
+
+  # requires unauthenticated scope
   scope "/", KombuchiServerWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
@@ -86,17 +95,24 @@ defmodule KombuchiServerWeb.Router do
     put "/users/reset_password/:token", UserResetPasswordController, :update
   end
 
+  # authenticated scope
   scope "/", KombuchiServerWeb do
     pipe_through [:browser, :require_authenticated_user]
 
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
+    get "/users/profile", UserSettingsController, :profile
+    get "/users/dashboard", UserSettingsController, :dashboard
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
   end
 
+  # public scope
   scope "/", KombuchiServerWeb do
     pipe_through [:browser]
 
+
+    # TODO add /sale_points
+    get "/sell_points", PageController, :sell_points
     get "/users/log_out", UserSessionController, :delete
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new

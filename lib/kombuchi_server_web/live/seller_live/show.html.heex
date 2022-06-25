@@ -1,0 +1,46 @@
+<h1>Show Seller</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.seller_show_path(@socket, :show, @seller)}>
+    <.live_component
+      module={KombuchiServerWeb.SellerLive.FormComponent}
+      id={@seller.id}
+      title={@page_title}
+      action={@live_action}
+      seller={@seller}
+      return_to={Routes.seller_show_path(@socket, :show, @seller)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @seller.name %>
+  </li>
+
+  <li>
+    <strong>Logo:</strong>
+    <%= @seller.logo %>
+  </li>
+
+  <li>
+    <strong>Website:</strong>
+    <%= @seller.website %>
+  </li>
+
+  <li>
+    <strong>Sitelink:</strong>
+    <%= @seller.sitelink %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @seller.description %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.seller_show_path(@socket, :edit, @seller), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.seller_index_path(@socket, :index) %></span>
