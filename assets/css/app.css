@@ -20,13 +20,13 @@
     @apply w-full md:w-11/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 px-4 mx-auto mt-6
   }
   .common-section-overlay{
-   @apply bg-opacity-50 h-screen
+   @apply bg-opacity-50 py-8
   }
   .common-container {
-    @apply mx-auto container max-w-4xl md:w-4/5 shadow-md
+    @apply mx-auto container max-w-4xl md:w-4/5 
   }
   .common-form-header{
-    @apply rounded-t mb-0 px-6 py-6
+    @apply rounded-t mb-0
   }
   .common-form-section{
     @apply md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center

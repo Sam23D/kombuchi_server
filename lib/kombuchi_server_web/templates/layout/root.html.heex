@@ -9,8 +9,9 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body class="h-screen" >
+  <body class="h-screen flex  flex-col" >
     <%# render "_user_menu.html", assigns %>
+
     <%= @inner_content %>
   </body>
 </html>
