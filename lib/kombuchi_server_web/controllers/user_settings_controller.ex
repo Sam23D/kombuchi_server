@@ -20,14 +20,6 @@ defmodule KombuchiServerWeb.UserSettingsController do
     render(conn, "profile.html", user: conn.assigns.current_user)
   end
 
-  @doc """
-  Should contain info about subscriiptions, billing and business high level abstractions
-  """
-  def dashboard(conn, params) do
-    IO.inspect(params,label: "edit EMAIL")
-    render(conn, "dashboard.html", user: conn.assigns.current_user)
-  end
-
   def update(conn, %{"action" => "update_email"} = params) do
     IO.inspect(params,label: "UPDAFING EMAIL")
     %{"current_password" => password, "user" => user_params} = params

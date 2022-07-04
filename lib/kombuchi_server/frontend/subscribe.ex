@@ -9,6 +9,9 @@ defmodule KombuchiServer.Frontend.Subscribe do
     field :name, :string
     belongs_to :user, User
 
+    #TBD refactor to have
+    # :type, "email,. phone, sms, etc..."
+    # :value, email or phone or custom....
     timestamps()
   end
 

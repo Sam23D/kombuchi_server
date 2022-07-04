@@ -32,7 +32,8 @@ defmodule KombuchiServer.MixProject do
       main: "KombuchiServer", # The main page in the docs
       extras: [
         "README.md",
-        "docs/common_style.md"
+        "docs/common_style.md",
+        "docs/user_flows.md"
       ]
     ]
 
