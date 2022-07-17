@@ -73,3 +73,14 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# TBD swagger config
+config :phoenix_swagger, json_library: Jason
+
+config :kombuchi_server, :phoenix_swagger,
+  swagger_files: %{
+    "priv/static/swagger.json" => [
+      router: KombuchiServerWeb.Router,     # phoenix routes will be converted to swagger paths
+      endpoint: KombuchiServerWeb.Endpoint  # (optional) endpoint config used to set host, port and https schemes.
+    ]
+  }

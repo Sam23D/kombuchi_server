@@ -6,8 +6,9 @@ defmodule KombuchiServer.MixProject do
       app: :kombuchi_server,
       version: "0.1.0",
       elixir: "~> 1.12",
-      elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      elixirc_paths: elixirc_paths(Mix.env()),\
+      # TBD configure swagger
+      compilers: [:gettext] ++ Mix.compilers() ++ [:phoenix_swagger],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -79,6 +80,9 @@ defmodule KombuchiServer.MixProject do
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
       {:makeup_html, ">= 0.0.0", only: :dev, runtime: false},
+      {:phoenix_swagger, "~> 0.8"},
+      {:ex_json_schema, "~> 0.5"} # optional
+
     ]
   end
 
