@@ -110,6 +110,14 @@ defmodule KombuchiServerWeb.Router do
     pipe_through [:browser]
 
 
+    live "/sell_items", SellItemLive.Index, :index
+    live "/sell_items/new", SellItemLive.Index, :new
+    live "/sell_items/:id/edit", SellItemLive.Index, :edit
+
+    live "/sell_items/:id", SellItemLive.Show, :show
+    live "/sell_items/:id/show/edit", SellItemLive.Show, :edit
+
+
     # TODO add /sale_points
     get "/sell_points", PageController, :sell_points
     get "/users/log_out", UserSessionController, :delete
@@ -120,4 +128,19 @@ defmodule KombuchiServerWeb.Router do
     put "/users/confirm/:token", UserConfirmationController, :update
     post "/users/confirm/:token", UserConfirmationController, :update
   end
+
+
+  scope "/api/swagger" do
+    forward "/", PhoenixSwagger.Plug.SwaggerUI, otp_app: :kombuchi_server, swagger_file: "swagger.json"
+  end
+
+  def swagger_info do
+    %{
+      info: %{
+        version: "1.0",
+        title: "My App"
+      }
+    }
+  end
+
 end

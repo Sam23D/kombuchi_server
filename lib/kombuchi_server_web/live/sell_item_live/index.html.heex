@@ -1,0 +1,92 @@
+<section class="common-section-overlay">
+  <div class="common-container">
+    <h1>Listing Sell items</h1>
+    <.table>
+    </.table>
+
+
+        <span>
+          <%= live_patch "New Sell item" , to: Routes.sell_item_index_path(@socket, :new) %>
+        </span>
+
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm divide-y divide-gray-200">
+            <thead>
+
+
+
+              <tr>
+                <th class="sticky left-0 p-4 text-left bg-white">
+                  <label class="sr-only" for="row_all">Select All</label>
+                  <input class="w-5 h-5 border-gray-200 rounded" type="checkbox" id="row_all" />
+                </th>
+                <th class="p-4 font-medium text-left text-gray-900 whitespace-nowrap">
+                  <div class="flex items-center">
+                    Name
+                  </div>
+                </th>
+                <th class="p-4 font-medium text-left text-gray-900 whitespace-nowrap">
+                  <div class="flex items-center">
+                    Email Address
+                  </div>
+                </th>
+                <th class="p-4 font-medium text-left text-gray-900 whitespace-nowrap">
+                  <div class="flex items-center">
+                    Status
+                  </div>
+                </th>
+              </tr>
+            
+
+
+            </thead>
+
+            <tbody class="divide-y divide-gray-100">
+
+              <%= if @live_action in [:new, :edit] do %>
+
+
+              <.modal return_to={Routes.sell_item_index_path(@socket, :index)}>
+
+                <.live_component module={KombuchiServerWeb.SellItemLive.FormComponent} id={@sell_item.id || :new}
+                  title={@page_title} action={@live_action} sell_item={@sell_item}
+                  return_to={Routes.sell_item_index_path(@socket, :index)} />
+              
+
+              </.modal>
+              <% end %>
+
+              <%= for sell_item <- @sell_items do %>
+                <tr>
+                  <td class="sticky left-0 p-4 bg-white">
+                    <label class="sr-only" for="row_1">Row 1</label>
+                    <input class="w-5 h-5 border-gray-200 rounded" type="checkbox" id="row_1" />
+                  </td>
+                  <td class="p-4 font-medium text-gray-900 whitespace-nowrap">
+
+                    <%= sell_item.escription %>
+                  </td>
+                  <td class="p-4 text-gray-700 whitespace-nowrap">
+                    <%= sell_item.name %>
+
+                  </td>
+                  <td class="p-4 text-gray-700 whitespace-nowrap">
+                    <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded text-xs font-medium">
+                      <%= live_redirect "Show" , to: Routes.sell_item_show_path(@socket, :show, sell_item) %>
+                    </span>
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded text-xs font-medium">
+                      <%= live_patch "Edit" , to: Routes.sell_item_index_path(@socket, :edit, sell_item) %>
+                    </span>
+                    <span class="bg-red-100 text-red-700 px-3 py-1.5 rounded text-xs font-medium">
+                      <%= link "Delete" , to: "#" , phx_click: "delete" , phx_value_id: sell_item.id, data:
+                        [confirm: "Are you sure?" ] %>
+                    </span>
+                  </td>
+                </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+        </div>
+  </div>
+</section>
